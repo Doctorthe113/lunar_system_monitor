@@ -17,5 +17,8 @@
         <entry name="updateInterval" type="int">
             <default>500</default>
         </entry>
+        <entry name="showCpu" type="bool">
+            <default>false</default>
+        </entry>
     </group>
 </kcfg>

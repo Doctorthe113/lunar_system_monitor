@@ -12,6 +12,7 @@ Item {
     property string cfg_fontFamily
     property int cfg_fontSize: 10
     property string cfg_updateInterval
+    property alias cfg_showCpu: showCpuCheck.checked
 
     FontDialog {
         id: fontDialog
@@ -57,6 +58,12 @@ Item {
                 return idx >= 0 ? idx : 0
             }
             onActivated: cfg_updateInterval = model[currentIndex].value
+        }
+
+        CheckBox {
+            id: showCpuCheck
+            Kirigami.FormData.label: i18n("Show CPU Usage:")
+            text: i18n("Enabled")
         }
     }
 }

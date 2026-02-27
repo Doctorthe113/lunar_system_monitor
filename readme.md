@@ -1,4 +1,6 @@
 This is a vibe coded project to replace default ugly af system monitor to a nice typical linux/waybar style system monitor for waybar.
+
+
 ![alt text](image.png)
 
 # Features

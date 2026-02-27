@@ -14,6 +14,7 @@ PlasmoidItem {
     property real ulSpeed: 0.0
     property real prevRx: -1
     property real prevTx: -1
+    property real prevNetTime: 0
 
     preferredRepresentation: fullRepresentation
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
@@ -108,13 +109,15 @@ PlasmoidItem {
             var rx = parseFloat(parts[0])
             var tx = parseFloat(parts[1])
             if (isNaN(rx) || isNaN(tx)) return
-            if (root.prevRx >= 0) {
-                var intervalSec = (plasmoid.configuration.updateInterval > 0 ? plasmoid.configuration.updateInterval : 500) / 1000
-                root.dlSpeed = (rx - root.prevRx) / intervalSec
-                root.ulSpeed = (tx - root.prevTx) / intervalSec
+            var now = Date.now()
+            if (root.prevRx >= 0 && now > root.prevNetTime) {
+                var elapsed = (now - root.prevNetTime) / 1000
+                root.dlSpeed = (rx - root.prevRx) / elapsed
+                root.ulSpeed = (tx - root.prevTx) / elapsed
             }
             root.prevRx = rx
             root.prevTx = tx
+            root.prevNetTime = now
         }
     }
 }

@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Id": "org.kde.plasma.lunarsystemmonitor",
+        "Name": "Lunar System Monitor",
+        "Description": "Network and memory usage monitor",
+        "Icon": "utilities-system-monitor",
+        "Authors": [
+            {
+                "Name": "doctorthe113"
+            }
+        ],
+        "Category": "System Information",
+        "Version": "1.0",
+        "License": "GPL-3.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}
